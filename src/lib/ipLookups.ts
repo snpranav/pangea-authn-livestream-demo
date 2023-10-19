@@ -56,4 +56,4 @@ const PangeaIPGeolocate = async (ip_address: string) => {
 }
   
 
-export { PangeaIPGeolocate }
+export { PangeaIPGeolocate, PangeaProxyCheck }
