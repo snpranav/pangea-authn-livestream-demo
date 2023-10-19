@@ -10,13 +10,6 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   const { logout, user, authenticated, getToken } = useAuth();
 
-  useEffect(() => {
-    console.log(user);
-    console.log(authenticated);
-  }, [user, authenticated])
-
-
-
   return (
     <>
         <Dashboard user={user} logout={logout} authenticated={authenticated} getToken={getToken} />

@@ -18,6 +18,10 @@ export default function Dashboard({user, logout, authenticated, getToken}: AuthU
 
   useEffect(() => {
     setPreloaderStatus(false)
+
+    if(!authenticated) {
+        router.push('/')
+    }
   }, [user, authenticated])
 
   const submitEntry = async () => {
