@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
   };
 
   return (
-    <AuthProvider loginUrl={hostedLoginURL} redirectUri='http://localhost:3000/app' config={authConfig}>
+    <AuthProvider loginUrl={hostedLoginURL} redirectUri='/app' config={authConfig}>
       <Component {...pageProps} />
     </AuthProvider>
   )
