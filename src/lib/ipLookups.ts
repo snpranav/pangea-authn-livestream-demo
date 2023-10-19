@@ -2,7 +2,7 @@ import { PangeaConfig, UserIntelService, IPIntelService, AuditService, PangeaErr
 
 const initializePangea = () => {
     const domain = process.env.PANGEA_DOMAIN;
-    const token = process.env.PANGEA_TOKEN;
+    const token = process.env.AUTHN_SERVICE_TOKEN;
     const config = new PangeaConfig({ domain: domain });
     const ipIntel = new IPIntelService(String(token), config);
 
