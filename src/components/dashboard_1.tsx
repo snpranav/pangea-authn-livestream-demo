@@ -43,7 +43,9 @@ export default function Dashboard({user, logout, authenticated, getToken}: AuthU
             'Content-Type': 'application/json',
             'authorization': `Bearer ${authToken}`
         },
-        body: JSON.stringify({}),
+        body: JSON.stringify({
+            "proxy": false
+        }),
         })
         .then(response => response.json()) 
         .then(data => {
