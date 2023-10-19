@@ -27,7 +27,33 @@ const PangeaIPGeolocate = async (ip_address: string) => {
       }
     }
   
-  }
+}
+
+  const PangeaProxyCheck = async (ip_address: string) => {
+    console.log("Proxy Checking IP...");
+ 
+    const ipIntel = initializePangea();
+    const options = { provider: "digitalelement", verbose: true, raw: true };
+    try {
+      const response = await ipIntel.isProxy(ip_address, options);
+      console.log("Result: ", response.result.data);
+  
+      if (response.result.data.is_proxy === true) {
+        console.log("IP is a Proxy");
+        return true;
+      } else {
+        console.log("IP is not a Proxy");
+        return false;
+      }
+    } catch (e) {
+      if (e instanceof PangeaErrors.APIError) {
+        console.log("Error", e.summary, e.errors);
+      } else {
+        console.log("Error: ", e);
+      }
+    }
+  
+}
   
 
 export { PangeaIPGeolocate }
