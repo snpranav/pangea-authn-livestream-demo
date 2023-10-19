@@ -13,6 +13,7 @@ async function handler(
 
     if(!req.body.proxy) {
         const ipResponse = await PangeaIPGeolocate(detectedIP as string);
+        console.log(ipResponse);
         return res.status(200).json(ipResponse as any)
     }
 

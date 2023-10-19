@@ -57,6 +57,28 @@ export default function Dashboard({user, logout, authenticated, getToken}: AuthU
         .catch((error) => console.error('Error:', error));
   }
 
+  const isProxy = async () => {
+    const authToken = await getToken();
+
+    await fetch('/api/geolocate', {
+        method: 'POST', 
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': `Bearer ${authToken}`
+        },
+        body: JSON.stringify({
+            "proxy": true
+        }),
+        })
+        .then(response => response.json()) 
+        .then(data => {
+            toast({
+                title: `Proxy?: ${data}`,
+            })
+        })
+        .catch((error) => console.error('Error:', error));
+  }
+
   return (
     <div
       className="flex min-h-screen w-full flex-col bg-[#bd1e59] bg-opacity-30 bg-cover"
@@ -165,7 +187,7 @@ export default function Dashboard({user, logout, authenticated, getToken}: AuthU
               <Button className="bg-pink-500 text-white rounded-lg py-2 px-4 flex-grow mr-2" type="button" onClick={geolocate}>
                 Geolocate Me 🫣
               </Button>
-              <Button className="bg-pink-500 text-white rounded-lg py-2 px-4 flex-grow ml-2" type="button">
+              <Button className="bg-pink-500 text-white rounded-lg py-2 px-4 flex-grow ml-2" type="button" onClick={isProxy}>
                 Am I on a Proxy? 🧐
               </Button>
             </div>
