@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
   };
 
   return (
-    <AuthProvider loginUrl={hostedLoginURL} redirectUri={`${process.env.NODE_ENV === 'production' ? 'https://pangea-authn-livestream-demo.vercel.app/app' : 'http://localhost:3001/app'}`} config={authConfig}>
+    <AuthProvider loginUrl={hostedLoginURL} redirectUri={`${process.env.NODE_ENV === 'production' ? 'https://pangea-authn-livestream-demo.vercel.app/app' : 'http://localhost:3000/app'}`} config={authConfig}>
       <Component {...pageProps} />
     </AuthProvider>
   )

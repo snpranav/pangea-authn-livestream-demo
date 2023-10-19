@@ -8,13 +8,6 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   const { login, user, authenticated } = useAuth();
 
-  useEffect(() => {
-    console.log(user);
-    console.log(authenticated);
-  }, [user, authenticated])
-
-
-
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}

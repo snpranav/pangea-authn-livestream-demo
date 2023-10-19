@@ -10,18 +10,13 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast"
 
-export default function Dashboard({user, logout, authenticated, getToken}: AuthUser) {
+export default function Dashboard({user, logout, authenticated, getToken, router}: AuthUser) {
   const [preloaderStatus, setPreloaderStatus] = useState(true);
   const [flavor, setFlavor] = useState("");
-  const router = useRouter();
   const { toast } = useToast()
 
   useEffect(() => {
     setPreloaderStatus(false)
-
-    if(!authenticated) {
-        router.push('/')
-    }
   }, [user, authenticated])
 
   const submitEntry = async () => {
