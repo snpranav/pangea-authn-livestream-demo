@@ -2,7 +2,6 @@
 import { withAPIAuthentication } from '@/lib/pangeaMiddleware';
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { PangeaConfig, IPIntelService, PangeaErrors } from "pangea-node-sdk";
-import { getClientIp } from "request-ip";
 
 function handler(
   req: NextApiRequest,
